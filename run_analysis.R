@@ -47,12 +47,13 @@ x_complete$subject_id<-factor(x_complete$subject_id)
 ##now the only thing left is to calculate the means of columns in x_complete
 ##grouped by activity_id and subject_id and name the columns of the
 ##resulting dataframe accordingly
-
+##returns the tidy dataframe and writes it in tidyset.txt file
 tidyset<-aggregate(x_complete[,3:ncol(x_complete)],
                    list(x_complete$activity_id,x_complete$subject_id),mean)
 meannames<-paste("MEAN OF",names(tidyset),sep=":")
 meannames[1]<-"activity"
 meannames[2]<-"indvidual"
 colnames(tidyset)<-meannames
-write.csv(tidyset,"tidyset.csv")
+return(tidyset)
+write.csv(tidyset,"tidyset.txt")
 
