@@ -54,4 +54,5 @@ meannames<-paste("MEAN OF",names(tidyset),sep=":")
 meannames[1]<-"activity"
 meannames[2]<-"indvidual"
 colnames(tidyset)<-meannames
+write.csv(tidyset,"tidyset.csv")
 
